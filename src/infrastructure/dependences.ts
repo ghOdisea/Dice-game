@@ -1,8 +1,8 @@
+import { DaoPlayer } from "./dao/dao-player";
 import { PlayerService } from "../application/services/player.services";
-import { DaoUser } from "../infrastructure/dao/dao-user";
-import { UserController } from "./http/controllers/user-controller";
+import { PlayerController } from "./http/controllers/player-controller";
 
 
-const daoUser = new DaoUser();
-const userServices = new PlayerService(daoUser);
-export const userControllers = new UserController(userServices)
+export const daoPlayer = new DaoPlayer();
+export const playerServices = new PlayerService(daoPlayer);
+export const playerControllers = new PlayerController(playerServices)
