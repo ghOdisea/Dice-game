@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./dist/application/db/server/server.js",
+    "dev": "nodemon ./dist/application/server/server.js",
     "build": "tsc"
   },
   "keywords": [],
