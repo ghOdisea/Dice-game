@@ -1,17 +1,12 @@
-import { Sequelize,DataTypes } from "sequelize";
+import { sequelize } from "../sequelize";
+import { DataTypes } from "sequelize";
 
-const sequelize = new Sequelize('jocdaus', 'root', 'passprueba', {
-    host: 'localhost',
-    dialect: 'mysql',
-    define: {
-      timestamps: false,
-    },
-  });
+export const player = sequelize.define('player',{
+    _id: {type: DataTypes.INTEGER,primaryKey:true},
+    name: DataTypes.CHAR,
+    registrationDate: DataTypes.DATE,
+    victories: DataTypes.INTEGER,
+    totalGames: DataTypes.INTEGER
+},{tableName:'player'});
 
-const User = sequelize.define('Usuari',{
-    id_usuari: {type: DataTypes.INTEGER,primaryKey:true},
-    nom_usuari: DataTypes.CHAR,
-    data_registre: DataTypes.DATE,
-},{tableName:'usuari'});
-
-export default User;
+export default player;

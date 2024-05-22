@@ -1,13 +1,19 @@
-// import User from '../schema/db-user'
-// import { UserRepository } from './user-repository'
+import Player from '../schema/db-user'
+import { PlayerRepository } from '../../domain/repository/player.repository'
 
 
-// export class DaoUser implements UserRepository{
+export class InMemoryRepoPlayer implements PlayerRepository{
 
-//     getAllUsers(){
-//         const usuari = User.findAll()
-//         return usuari
-//     }
-// }
+    getAllPlayers(){
+        const players = Player.findAll()
+        return players
+    }
+    createPlayer(){
+        
+    }
+    updatePlayerbyId(playerId:number){
+
+    }
+}
 
 
