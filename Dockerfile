@@ -1,4 +1,4 @@
-FROM node:20.10
+FROM node:20-alpine3.18
 
 WORKDIR /app
 
@@ -10,4 +10,4 @@ RUN npm run build
 
 EXPOSE 3000
 
-CMD ["node", "/app/dist/server/server.js"]
+CMD ["node", "./dist/application/db/server/server.js"]
