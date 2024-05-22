@@ -1,7 +1,7 @@
-import express from "express";
-import { playerControllers } from "../../dependences";
+import express from 'express'
+import { playerControllers } from '../../dependences'
 
-export const playerRouter = express.Router();
+export const playerRouter = express.Router()
 
-playerRouter.get("/players", playerControllers.getAllUsers)
+playerRouter.get('/players', playerControllers.getAllUsers)
 

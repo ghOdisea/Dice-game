@@ -1,5 +1,5 @@
-import Player from "../models/player";
-import { Ranking } from "../models/ranking";
+import Player from '../models/player'
+import { Ranking } from '../models/ranking'
 
 export interface RankingRepository{
     getAllRankings: () => Array<Ranking | Player>
