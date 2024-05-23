@@ -10,4 +10,4 @@ RUN npm run build
 
 EXPOSE 3000
 
-CMD ["node", "./dist/application/db/server/server.js"]
+CMD ["node", "./dist/application/server/server.js"]

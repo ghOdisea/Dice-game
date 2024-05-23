@@ -6,7 +6,7 @@ export class DaoPlayer implements PlayerRepository{
 
   getAllPlayers(){
     const players = dbPlayer.findAll()
-    console.log('Dao check')
+    console.log(players)
     return players
   }
   createPlayer(){
@@ -15,7 +15,7 @@ export class DaoPlayer implements PlayerRepository{
   }
   // updatePlayerbyId(playerId:number){
   //     const updatePlayer = dbPlayer.findByPk(playerId)
-  //     if(updatePlayer){
+  //     if(updatePlayer){∫
   //         return updatePlayer
   //     }else{
   //         console.log("Player not found")
@@ -23,5 +23,6 @@ export class DaoPlayer implements PlayerRepository{
   //     }
   // }
 }
+
 
 

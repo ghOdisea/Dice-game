@@ -1,8 +1,8 @@
-import { PlayerController } from '../controllers/player-controller'
 import { BaseRouter } from './router'
+import { PlayerController } from '../controllers/player-controller'
 
 
-// playerRouter.get('/players', playerControllers.getAllUsers)
+
 export class PlayerRouter extends BaseRouter<PlayerController>{
   constructor(){
     super(PlayerController)
