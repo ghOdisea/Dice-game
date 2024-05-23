@@ -1,4 +1,4 @@
-import dbPlayer from '../schema/db-player'
+import { dbPlayer } from '../schema/db-player'
 import { PlayerRepository } from '../../domain/repository/player.repository'
 
 
@@ -6,6 +6,7 @@ export class DaoPlayer implements PlayerRepository{
 
   getAllPlayers(){
     const players = dbPlayer.findAll()
+    console.log('Dao check')
     return players
   }
   createPlayer(){

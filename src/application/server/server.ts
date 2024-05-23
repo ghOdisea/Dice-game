@@ -1,14 +1,34 @@
-import express from 'express'
-const app = express()
-const PORT : string | number = process.env.PORT ?? 3000
+import express, { Router } from 'express'
+import { PlayerRouter } from '../../infrastructure/http/routes/player-router'
 
-app.get('/', (_, res) => {
-  res.status(200).send('Welcome to this new game of Rolling - Dices!')
-})
+class ServerBootStrap {
+  
+  public app = express()
+  public PORT : string | number = process.env.PORT ?? 3000
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`)
-})
-
-
-
+  build (): void {
+    this.app.use(express.json())
+    this.app.use(express.urlencoded({ extended: true }))
+    this.app.disable('x-powered-by')
+    this.app.use('/api', this.routers())
+  
+    this.listen()
+  }
+    
+  routers (): Router[] {
+    return [
+      new PlayerRouter().router
+      // new GameRouter().router
+      // new RankingRouter().router
+    ]
+  }
+    
+  public listen (): void {
+    this.app.listen(this.PORT, () => {
+      console.log(`Server listening on port => ${this.PORT}`)
+    })
+  }
+}
+    
+const server = new ServerBootStrap()
+server.build()
