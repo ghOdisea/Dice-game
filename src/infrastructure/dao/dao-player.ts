@@ -1,12 +1,12 @@
 import { dbPlayer } from '../schema/db-player'
 import { PlayerRepository } from '../../domain/repository/player.repository'
-
+import Player from '../../domain/models/player'
+import { Model } from 'sequelize'
 
 export class DaoPlayer implements PlayerRepository{
 
-  getAllPlayers(){
+  async getAllPlayers(): Promise<Model<Player>[] | null>{
     const players = dbPlayer.findAll()
-    console.log(players)
     return players
   }
   createPlayer(){

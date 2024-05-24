@@ -8,7 +8,7 @@ export class PlayerRouter extends BaseRouter<PlayerController>{
     super(PlayerController)
   }
 
-  routes(){
+  routes():void{
     this.router.get('/players', (_, res) => {
       console.log('Router check')
       void this.controller.getAllPlayers(_, res)

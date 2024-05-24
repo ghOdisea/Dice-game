@@ -2,7 +2,7 @@ import { Model } from 'sequelize'
 import Player from '../models/player'
 
 export interface PlayerRepository{
-    getAllPlayers: () => Promise<Model<Player>[] >
+    getAllPlayers: () => Promise<Model<Player>[] | null>
     createPlayer: () => Promise<Model<Player>>
     // updatePlayerbyId: (playerID: number) => Promise<Model<Player> | undefined>
 }

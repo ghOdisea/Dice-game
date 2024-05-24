@@ -7,7 +7,7 @@ export class PlayerService{
     this.playerRepository = playerRepository
   }
     
-  async getAllPlayers(): Promise<Model<Player>[]>{
+  async getAllPlayers(): Promise<Model<Player>[] |null >{
     const allPlayers = this.playerRepository.getAllPlayers()
     console.log('Service check')
     return allPlayers
