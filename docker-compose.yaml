@@ -1,22 +1,21 @@
 
 services:
-
-#  app:
-#    image: rolling_dice
-#    ports:
-#      - 3000:3000
-#    environment:
-#      MYSQL=HOST: mysql
-#      MYSQL_USER: root
-#      MYSQL_PASSWORD: secret
-#     MYSQL_DB: rolling
+  app:
+    image: rolling_dices
+    ports:
+      - 3000:3000
+    environment:
+      MYSQL=HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: rolling
   db:
     image: mysql
     ports:
-      - 3006:3006
+      - 3306:3306
     volumes:
       - ./db:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: rolling
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=rolling
