@@ -1,6 +1,6 @@
 export default class Player{
 
-  public _id: number
+  public id: number
   public name : string
   public victories: number
   public registrationDate: Date
@@ -8,7 +8,7 @@ export default class Player{
 
 
   constructor(_id: number, name: string, victories: number, registrationDate: Date, totalGames: number){
-    this._id = _id
+    this.id = _id
     this.name = name
     this.victories = victories
     this.registrationDate = registrationDate
