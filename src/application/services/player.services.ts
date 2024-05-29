@@ -9,10 +9,10 @@ export class PlayerService{
     
   async getAllPlayers(): Promise<Model<Player>[] |null >{
     const allPlayers = this.playerRepository.getAllPlayers()
-    console.log('Service check')
+    // console.log('Service check')
     return allPlayers
   }
-  async createPlayer(playerName:Player): Promise<Model<Player>> {
+  async createPlayer(playerName:string): Promise<Model<Player>> {
     const player = this.playerRepository.createPlayer(playerName)
     return player
   }

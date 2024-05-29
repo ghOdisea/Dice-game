@@ -3,6 +3,6 @@ import Player from '../models/player'
 
 export interface PlayerRepository{
     getAllPlayers: () => Promise<Model<Player>[] | null>
-    createPlayer: (player:Player) => Promise<Model<Player>>
+    createPlayer: (playerName:string) => Promise<Model<Player>>
     updatePlayerbyId: (playerID: number) => Promise<Model<Player> | null>
 }
