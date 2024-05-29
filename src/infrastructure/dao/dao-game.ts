@@ -8,13 +8,9 @@ export class DaoGame implements GameRepository{
     const newGame = dbGame.create()
     return newGame
   }
-  getGamesByPlayerId(playerId:number): Model<Game>{
-    const games = dbGame.findAll(
-      where:{
-        id:playerId
-      }
-    })
-
+  async getGamesByPlayerId(playerId:number): Promise<Model<Game>[] | null>{
+    const games = dbGame.findAll({ where: { title: playerId } })
+    return games
   }
 }
 
