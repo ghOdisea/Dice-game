@@ -9,8 +9,8 @@ export class DaoPlayer implements PlayerRepository{
     const players = dbPlayer.findAll()
     return players
   }
-  createPlayer(){
-    const newPlayer = dbPlayer.create()
+  createPlayer(player:Player):Promise<Model<Player>>{
+    const newPlayer = dbPlayer.create(player)
     return newPlayer
   }
   updatePlayerbyId(playerId:number): Promise<Model<Player>|null> {
