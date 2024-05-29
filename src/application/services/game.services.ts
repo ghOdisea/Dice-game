@@ -1,4 +1,4 @@
-import { Game } from '../../domain/models/game'
+import Game from '../../domain/models/game'
 import Player from '../../domain/models/player'
 import { GameRepository } from '../../domain/repository/game.repository'
 

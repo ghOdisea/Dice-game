@@ -1,4 +1,4 @@
-export class Game {
+export default class Game {
   public _id: number
   public id_player: number
   public dice1: number
