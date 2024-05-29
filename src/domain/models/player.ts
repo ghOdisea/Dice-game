@@ -11,7 +11,7 @@ export default class Player{
     this.id = _id
     this.name = name
     this.victories = victories
-    this.registrationDate = registrationDate
     this.totalGames = totalGames 
+    this.registrationDate = registrationDate
   }
 }
