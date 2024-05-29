@@ -4,12 +4,16 @@ import { dbGame } from '../schema/db-game'
 import { Model } from 'sequelize'
 
 export class DaoGame implements GameRepository{
-  createGameByIdPlayer(): Promise<Model<Game>>{
+  createGameByPlayerId(): Promise<Model<Game>>{
     const newGame = dbGame.create()
     return newGame
   }
   async getGamesByPlayerId(playerId:number): Promise<Model<Game>[] | null>{
     const games = dbGame.findAll({ where: { title: playerId } })
+    return games
+  }
+  async deleteGamesById(playerId:number): Promise<number>{
+    const games = dbGame.destroy({ where: { title: playerId } })
     return games
   }
 }
