@@ -20,5 +20,13 @@ export class PlayerController{
     }
     res.status(200).send(player)
   }
-
+  async updatePlayer(req: Request, res: Response): Promise<void>{
+    const newPlayerName= req.body.name
+    const playerUpdate = await playerServices.updatePlayerbyId(newPlayerName)
+    if(!playerUpdate){
+      console.log('player doesn\'t exist')
+      res.status(404).send('user not exist')
+    }
+    res.status(202).send(playerUpdate+' has changed to '+newPlayerName)
+  }
 }

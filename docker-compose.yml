@@ -7,15 +7,14 @@ services:
     environment:
       MYSQL=HOST: mysql
       MYSQL_USER: root
+      MYSQL_DB: rolling_dices
       MYSQL_PASSWORD: secret
-      MYSQL_DB: rolling
   db:
     image: mysql
     ports:
       - 3306:3306
     volumes:
       - ./db:/var/lib/mysql
-    restart: always
     environment:
+      - MYSQL_DATABASE=rolling_dices
       - MYSQL_ROOT_PASSWORD=secret
-      - MYSQL_DATABASE=rolling

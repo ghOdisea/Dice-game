@@ -16,7 +16,7 @@ export class PlayerService{
     const player = this.playerRepository.createPlayer(playerName)
     return player
   }
-  async updatePlayerbyId(playerID: number): Promise<Model<Player> | undefined>{
+  async updatePlayerbyId(playerID: number): Promise<Model<Player> | null>{
     const player = this.playerRepository.updatePlayerbyId(playerID)
     return player
   }

@@ -14,8 +14,10 @@ export class PlayerRouter extends BaseRouter<PlayerController>{
       void this.controller.getAllPlayers(_, res)
     })
     this.router.post('/players', (req, res) => {
-      
       void this.controller.newPlayer(req,res)
+    })
+    this.router.patch('/players',(req,res)=>{
+      void this.controller.updatePlayer(req,res)
     })
   }
 }
