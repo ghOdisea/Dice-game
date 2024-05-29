@@ -4,7 +4,7 @@ import { DataTypes, Model } from 'sequelize'
 
 export const dbPlayer = sequelize.define<Model<Player>>('player',{
   id: {type: DataTypes.INTEGER,primaryKey:true},
-  name: DataTypes.INTEGER,
+  name: DataTypes.CHAR,
   victories: DataTypes.CHAR,
   registrationDate: DataTypes.DATE,
   totalGames:DataTypes.INTEGER
