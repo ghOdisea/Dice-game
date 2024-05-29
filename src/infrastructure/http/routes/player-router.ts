@@ -15,7 +15,7 @@ export class PlayerRouter extends BaseRouter<PlayerController>{
     })
     this.router.post('/players', (req, res) => {
       
-      void this.controller.newPlayer(req.body.name)
+      void this.controller.newPlayer(req,res)
     })
   }
 }

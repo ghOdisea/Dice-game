@@ -12,12 +12,12 @@ export class PlayerService{
     console.log('Service check')
     return allPlayers
   }
-  async createPlayer(): Promise<Model<Player>> {
-    const player = this.playerRepository.createPlayer()
+  async createPlayer(playerName:string): Promise<Model<Player>> {
+    const player = this.playerRepository.createPlayer(playerName)
     return player
   }
-  // async updatePlayerbyId(playerID: number): Promise<Model<Player> | undefined>{
-  //     const player = this.playerRepository.updatePlayerbyId(playerID)
-  //     return player
-  // }
+  async updatePlayerbyId(playerID: number): Promise<Model<Player> | undefined>{
+    const player = this.playerRepository.updatePlayerbyId(playerID)
+    return player
+  }
 }

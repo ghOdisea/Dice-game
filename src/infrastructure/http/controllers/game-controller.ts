@@ -40,7 +40,5 @@ export class GameController{
     }else{
       res.status(205).json(playerReset)
     }
-  }
-
-  
+  } 
 }
