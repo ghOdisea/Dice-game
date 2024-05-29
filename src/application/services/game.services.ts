@@ -9,17 +9,17 @@ export class GameService{
   }
 
   async createGamebyPlayerId(playerID: number): Promise<Model<Game>>{
-    const game = this.gameRepository.createGamebyPlayerId(playerID)
+    const game = this.gameRepository.createGameByPlayerId(playerID)
     return game
   }
 
-  async getGamesByPlayerId(playerID: number): Promise<Model<Game>[]>{
+  async getGamesByPlayerId(playerID: number): Promise<Model<Game>[] | null>{
     const games = this.gameRepository.getGamesByPlayerId(playerID)
     return games
   }
 
-  async deleteGamesbyId(playerID: number): Promise<Player>{
-    const playerReset = this.gameRepository.deleteGamesbyId(playerID)
+  async deleteGamesbyId(playerID: number): Promise<number>{
+    const playerReset = this.gameRepository.deleteGamesById(playerID)
     return playerReset
     // Intencion de que devuelva el jugador con el numero de partidas en cero.
   }

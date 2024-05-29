@@ -13,13 +13,12 @@ export class DaoPlayer implements PlayerRepository{
     const newPlayer = dbPlayer.create()
     return newPlayer
   }
-  updatePlayerbyId(playerId:number){
+  updatePlayerbyId(playerId:number): Promise<Model<Player> | null{
   const updatePlayer = dbPlayer.findByPk(playerId)
     if(!updatePlayer){
-      return updatePlayer
       console.log("Player not found")
-      return undefined
     }
+    return updatePlayer
   }
 }
 
