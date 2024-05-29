@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { sequelize } from '../sequelize'
 import { DataTypes } from 'sequelize'
 
@@ -19,3 +20,18 @@ export const dbRanking = sequelize.define('ranking',{
   },
   score: DataTypes.INTEGER
 },{tableName:'ranking'})
+=======
+import { Model } from 'sequelize'
+import { DataTypes } from 'sequelize'
+import { sequelize } from '../sequelize'
+import { Ranking } from '../../domain/models/ranking'
+
+export const dbRanking = sequelize.define<Model<Ranking>>(
+  'ranking',{
+    _id: { type: DataTypes.INTEGER, primaryKey: true, allowNull: false },
+    id_game: DataTypes.INTEGER,
+    id_player: DataTypes.INTEGER,
+    score: DataTypes.INTEGER
+  }, { tableName: 'ranking' } ) 
+
+>>>>>>> d710a8ac188138cf510b547e50682a454a4a6bc4
