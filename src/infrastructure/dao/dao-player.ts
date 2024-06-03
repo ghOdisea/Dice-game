@@ -6,15 +6,15 @@ import { Model } from 'sequelize'
 export class DaoPlayer implements PlayerRepository{
 
   async getAllPlayers(): Promise<Model<Player>[] | null>{
-    const players = dbPlayer.findAll()
+    const players = await dbPlayer.findAll()
     return players
   }
-  async createPlayer(playerName: string):Promise<Model<Player>>{
-    const newPlayer = dbPlayer.create({ name: playerName })
+  async createPlayer(player:Player):Promise<Model<Player>>{
+    const newPlayer = await dbPlayer.create(player)
     return newPlayer
   }
   async updatePlayerbyId(playerId:number): Promise<Model<Player>|null> {
-    const updatePlayer = dbPlayer.findOne({ where: { id: playerId } })
+    const updatePlayer = await dbPlayer.findOne({ where: { id: playerId } })
     if(!updatePlayer){
       // console.log('Player not found')
     }

@@ -14,7 +14,7 @@ export class PlayerController{
     res.status(200).send(players)
   }
   async newPlayer(req:Request,res:Response): Promise <void>{
-    const newName = req.body.name
+    const newName = req.body
     const player = await playerServices.createPlayer(newName)
     if(!player){
       res.status(404).send('user exists')
