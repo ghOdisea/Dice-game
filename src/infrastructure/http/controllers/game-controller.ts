@@ -16,7 +16,6 @@ export class GameController{
     }
         
   }
-
   async getGamesByPlayerId(req: Request, res: Response): Promise<void>{
     const playerID = req.body.id
     const allGames = await gameServices.getGamesByPlayerId(playerID)

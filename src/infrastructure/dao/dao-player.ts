@@ -9,16 +9,17 @@ export class DaoPlayer implements PlayerRepository{
     const players = await dbPlayer.findAll()
     return players
   }
+  async getPlayerById(playerId:number): Promise<Model<Player> | null>{
+    const player = await dbPlayer.findOne({ where: { id: playerId } })
+    return player
+  }
   async createPlayer(player:Player):Promise<Model<Player>>{
     const newPlayer = await dbPlayer.create(player)
     return newPlayer
   }
-  async updatePlayerbyId(playerId:number): Promise<Model<Player>|null> {
-    const updatePlayer = await dbPlayer.findOne({ where: { id: playerId } })
-    if(!updatePlayer){
-      // console.log('Player not found')
-    }
-    return updatePlayer
+  async updatePlayerbyId(playerId:number,changes:any): Promise<number>{
+    const updatePlayer = await dbPlayer.update({ name: changes},{where: { id: playerId } })
+    return +updatePlayer
   }
 }
 
