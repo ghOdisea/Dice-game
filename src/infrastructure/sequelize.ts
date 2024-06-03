@@ -9,8 +9,6 @@ export const sequelize = new Sequelize('rolling_dices', 'root', 'secret', {
 })
 
 sequelize.authenticate()
-
-sequelize.authenticate()
   .then(()=>{
     console.log('Connection has been established successfully.')
   })

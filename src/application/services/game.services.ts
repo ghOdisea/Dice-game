@@ -1,6 +1,5 @@
 import { Model } from 'sequelize'
 import Game from '../../domain/models/game'
-import Player from '../../domain/models/player'
 import { GameRepository } from '../../domain/repository/game.repository'
 
 export class GameService{
@@ -8,9 +7,9 @@ export class GameService{
     this.gameRepository = gameRepository
   }
 
-  async createGamebyPlayerId(playerID: number): Promise<Model<Game>>{
-    const game = this.gameRepository.createGameByPlayerId(playerID)
-    return game
+  async createGamebyPlayerId(game: Game): Promise<Model<Game>>{
+    const newGame = this.gameRepository.createGameByPlayerId(game)
+    return newGame
   }
 
   async getGamesByPlayerId(playerID: number): Promise<Model<Game>[] | null>{

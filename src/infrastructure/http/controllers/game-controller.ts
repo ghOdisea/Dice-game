@@ -5,20 +5,20 @@ import { gameServices } from '../../dependences'
 export class GameController{
 
   async createGamebyPlayerId(req: Request, res: Response): Promise<void>{
-    const playerID = req.body.id
+    const playerID = req.body.id_player
     const newGame = await gameServices.createGamebyPlayerId(playerID)
-    // console.log(newGame)
+    console.log('Controller check')
 
     if(newGame == null){
       res.status(404).send('Player does not exist')
     }else{
-      res.status(201).send('Good Luck! You just played a game!')
+      res.status(201).send('Good Luck! You just played a game!').json(newGame)
     }
         
   }
 
   async getGamesByPlayerId(req: Request, res: Response): Promise<void>{
-    const playerID = req.body.id
+    const playerID = Number(req.params.id)
     const allGames = await gameServices.getGamesByPlayerId(playerID)
     // console.log(newGame)
 

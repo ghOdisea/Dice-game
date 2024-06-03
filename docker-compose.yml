@@ -5,10 +5,14 @@ services:
     ports:
       - 3000:3000
     environment:
-      MYSQL=HOST: mysql
+      MYSQL_HOST: mysql
       MYSQL_USER: root
       MYSQL_DB: rolling_dices
       MYSQL_PASSWORD: secret
+    depends_on:
+      - db
+    links:
+      - db
   db:
     image: mysql
     ports:
@@ -18,3 +22,5 @@ services:
     environment:
       - MYSQL_DATABASE=rolling_dices
       - MYSQL_ROOT_PASSWORD=secret
+volumes:
+  mysql-data:
