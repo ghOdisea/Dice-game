@@ -1,5 +1,6 @@
 import express, { Router } from 'express'
 import { PlayerRouter } from '../../infrastructure/http/routes/player-router'
+import { GameRouter } from '../../infrastructure/http/routes/game-router'
 
 class ServerBootStrap {
   
@@ -17,9 +18,8 @@ class ServerBootStrap {
     
   routers (): Router[] {
     return [
-      new PlayerRouter().router
-      // new GameRouter().router
-      // new RankingRouter().router
+      new PlayerRouter().router,
+      new GameRouter().router            
     ]
   }
     
