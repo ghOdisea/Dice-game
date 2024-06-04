@@ -2,7 +2,7 @@ import { sequelize } from '../sequelize'
 import { DataTypes, Model } from 'sequelize'
 import { getRandomValue } from './utils/randomInt'
 import Game from '../../domain/models/game'
-
+/*
 export const dbGame = sequelize.define<Model<Game>>('game',{
   id: {
     type: DataTypes.INTEGER,
@@ -41,3 +41,4 @@ export const dbGame = sequelize.define<Model<Game>>('game',{
   }
 
 })
+*/

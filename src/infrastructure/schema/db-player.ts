@@ -1,8 +1,8 @@
-import Game from '../../domain/models/game'
+/* import Game from '../../domain/models/game' */
 import Player from '../../domain/models/player'
 import { sequelize } from '../sequelize'
 import { DataTypes, Model, NOW } from 'sequelize'
-import { dbGame } from './db-game'
+/* import { dbGame } from './db-game' */
 
 export const dbPlayer = sequelize.define<Model<Player>>('player',{
   id: {
@@ -27,5 +27,5 @@ export const dbPlayer = sequelize.define<Model<Player>>('player',{
     defaultValue: NOW
   }
 },{tableName:'player'}) 
-
-dbPlayer.hasMany(dbGame)
+/* 
+dbPlayer.hasMany(dbGame) */

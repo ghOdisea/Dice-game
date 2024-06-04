@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+/* import { Request, Response } from 'express'
 import { gameServices } from '../../dependences'
 
 
@@ -40,4 +40,4 @@ export class GameController{
       res.status(205).json(playerReset)
     }
   } 
-}
+} */
