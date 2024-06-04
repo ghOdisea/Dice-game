@@ -1,7 +1,11 @@
+<<<<<<< HEAD
+/* import Game from '../../domain/models/game' */
+=======
+>>>>>>> 23ed55aa865ebb69e0a3025a908423f64b2a15a8
 import Player from '../../domain/models/player'
 import { sequelize } from '../sequelize'
 import { DataTypes, Model, NOW } from 'sequelize'
-import { dbGame } from './db-game'
+/* import { dbGame } from './db-game' */
 
 export const dbPlayer = sequelize.define<Model<Player>>('player',{
   id: {
@@ -26,5 +30,5 @@ export const dbPlayer = sequelize.define<Model<Player>>('player',{
     defaultValue: NOW
   }
 },{tableName:'player'}) 
-
-dbPlayer.hasMany(dbGame)
+/* 
+dbPlayer.hasMany(dbGame) */

@@ -1,7 +1,7 @@
 import { sequelize } from '../sequelize'
 import { DataTypes, Model } from 'sequelize'
 import Game from '../../domain/models/game'
-
+/*
 export const dbGame = sequelize.define<Model<Game>>('game',{
   id: {
     type: DataTypes.INTEGER,
@@ -30,4 +30,9 @@ export const dbGame = sequelize.define<Model<Game>>('game',{
   }
 },{ tableName: 'game'}
 
+<<<<<<< HEAD
+})
+*/
+=======
 )
+>>>>>>> 23ed55aa865ebb69e0a3025a908423f64b2a15a8

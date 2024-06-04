@@ -59,4 +59,4 @@ export class GameController{
       res.status(205).json(playerReset)
     }
   } 
-}
+} */
