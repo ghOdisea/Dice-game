@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /* import Game from '../../domain/models/game' */
+=======
+>>>>>>> 23ed55aa865ebb69e0a3025a908423f64b2a15a8
 import Player from '../../domain/models/player'
 import { sequelize } from '../sequelize'
 import { DataTypes, Model, NOW } from 'sequelize'

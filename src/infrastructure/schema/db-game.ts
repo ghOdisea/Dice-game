@@ -1,6 +1,5 @@
 import { sequelize } from '../sequelize'
 import { DataTypes, Model } from 'sequelize'
-import { getRandomValue } from './utils/randomInt'
 import Game from '../../domain/models/game'
 /*
 export const dbGame = sequelize.define<Model<Game>>('game',{
@@ -14,31 +13,26 @@ export const dbGame = sequelize.define<Model<Game>>('game',{
     references:{
       model:'Player',
       key: 'id'
-    }},
+    },
+    allowNull: false
+  },
   dice1:{ 
-    type: DataTypes.INTEGER, 
-    defaultValue: getRandomValue()
+    type: DataTypes.INTEGER,  
+    allowNull: false
   },
   dice2:{ 
     type: DataTypes.INTEGER,
-    defaultValue: getRandomValue()
+    allowNull: false
   },
   score: {
     type: DataTypes.INTEGER,
-    allowNull: false,
-    get() {
-      return this.getDataValue('dice1') + this.getDataValue('dice2')
-    }
+    allowNull: false
   }
-},{ tableName: 'game',
-  hooks: {
-    beforeCreate: game => {
-      game.score = game.dice1 + game.dice2
-    },
-    beforeUpdate: game => {
-      game.score = game.dice1 + game.dice2
-    }
-  }
+},{ tableName: 'game'}
 
+<<<<<<< HEAD
 })
 */
+=======
+)
+>>>>>>> 23ed55aa865ebb69e0a3025a908423f64b2a15a8
