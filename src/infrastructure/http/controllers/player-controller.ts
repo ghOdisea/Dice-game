@@ -9,7 +9,7 @@ export class PlayerController{
     if(players === undefined){
       res.status(404).send('players not found')
     }
-    res.status(200).send(players)
+    res.status(200).json(players)
   }
   async getPlayerById(req:Request,res:Response): Promise<void>{
     const {
@@ -25,7 +25,7 @@ export class PlayerController{
     }else{
       try{
         const player = await playerServices.getPlayer(+playerId)
-        res.send({status: 'OK',data: player})
+        res.json({status: 'OK',data: player})
       }catch (error:any){
         res
           .status(error?.status || 500)
@@ -40,7 +40,7 @@ export class PlayerController{
     if(!player){
       res.status(404).send('user exists')
     }
-    res.status(201).send(player)
+    res.status(201).json(player)
   }
 
   async updatePlayer(req: Request, res: Response): Promise<void>{

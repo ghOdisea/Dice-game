@@ -1,8 +1,9 @@
 import { Sequelize } from 'sequelize'
 
 export const sequelize = new Sequelize('rolling_dices', 'root', 'secret', {
-  host: 'localhost',
+  host: 'db',
   dialect: 'mysql',
+  port: 3306,
   define: {
     timestamps: false,
   },

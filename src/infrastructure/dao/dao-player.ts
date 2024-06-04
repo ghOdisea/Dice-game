@@ -1,4 +1,4 @@
-import { dbPlayer } from '../schema/db-player'
+import { dbPlayer } from '../schemas/db-player'
 import { PlayerRepository } from '../../domain/repository/player.repository'
 import Player from '../../domain/models/player'
 import { Model } from 'sequelize'
@@ -23,7 +23,10 @@ export class DaoPlayer implements PlayerRepository{
   }
   async updateScore(playerId:number, score: number): Promise<void>{
     if(score === 7 ){
-      const updatePlayerWinner = await dbPlayer.update({victories: +1, totalGames: +1 },{where: { id: playerId } })
+      const updatePlayerWinner = await dbPlayer.update({
+        victories: +1, 
+        totalGames: +1 
+      },{where: { id: playerId } })
       console.log(updatePlayerWinner)
     }else{
       const updatePlayerLoser = await dbPlayer.update({totalGames: +1 },{where: { id: playerId } })

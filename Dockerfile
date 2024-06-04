@@ -1,8 +1,8 @@
-FROM node:20-alpine3.18
+FROM node:latest
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json .
 
 RUN npm install
 
@@ -10,4 +10,6 @@ RUN npm run build
 
 EXPOSE 3000
 
-CMD ["node", "./dist/application/server/server.js"]
+COPY . .
+
+CMD npm run dev

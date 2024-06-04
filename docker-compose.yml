@@ -1,26 +1,29 @@
-
 services:
-  app:
-    image: rolling_dices
-    ports:
-      - 3000:3000
-    environment:
-      MYSQL_HOST: mysql
-      MYSQL_USER: root
-      MYSQL_DB: rolling_dices
-      MYSQL_PASSWORD: secret
-    depends_on:
-      - db
-    links:
-      - db
-  db:
+  mysql_db:
     image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=rolling_dices
     ports:
       - 3306:3306
     volumes:
       - ./db:/var/lib/mysql
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql_db
+    links:
+      - mysql_db
+    image: rolling_dices
+    ports:
+      - 3000:3000
     environment:
-      - MYSQL_DATABASE=rolling_dices
-      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_HOST=mysql_db
+      - MYSQL_USER= root
+      - MYSQL_DB=rolling_dices
+      - MYSQL_PASSWORD=secret
 volumes:
   mysql-data:

@@ -1,6 +1,6 @@
 import express, { Router } from 'express'
 import { PlayerRouter } from '../../infrastructure/http/routes/player-router'
-/* import { GameRouter } from '../../infrastructure/http/routes/game-router' */
+import { GameRouter } from '../../infrastructure/http/routes/game-router'
 
 class ServerBootStrap {
   
@@ -12,14 +12,14 @@ class ServerBootStrap {
     this.app.use(express.urlencoded({ extended: true }))
     this.app.disable('x-powered-by')
     this.app.use('/api', this.routers())
-  
     this.listen()
+  
   }
     
   routers (): Router[] {
     return [
       new PlayerRouter().router,
-/*       new GameRouter().router    */         
+      new GameRouter().router      
     ]
   }
     

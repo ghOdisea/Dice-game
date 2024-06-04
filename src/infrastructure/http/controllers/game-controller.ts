@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { daoPlayer, gameServices } from '../../dependences'
-import { getRandomValue } from '../../schema/utils/randomInt'
+import { getRandomValue } from '../utils/randomInt'
 
 
 export class GameController{
@@ -30,7 +30,7 @@ export class GameController{
         res.status(201).json(newGame)
         
       } catch (error) {
-        res.status(500).send('Something went wrong' + error)
+        res.status(500).send('Something went wrong. My bad...' + error)
       }
     }
     
@@ -59,4 +59,4 @@ export class GameController{
       res.status(205).json(playerReset)
     }
   } 
-} */
+}
