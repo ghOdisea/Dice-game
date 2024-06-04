@@ -9,7 +9,7 @@ export class GameRouter extends BaseRouter<GameController>{
   }
 
   routes():void{
-    this.router.post('/games', (req, res) => {
+    this.router.post('/games/:id', (req, res) => {
       void this.controller.createGamebyPlayerId(req, res)
     })
     this.router.get('/games/:id', (_, res) => {

@@ -1,4 +1,3 @@
-import Game from '../../domain/models/game'
 import Player from '../../domain/models/player'
 import { sequelize } from '../sequelize'
 import { DataTypes, Model, NOW } from 'sequelize'

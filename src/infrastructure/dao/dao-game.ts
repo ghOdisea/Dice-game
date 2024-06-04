@@ -4,7 +4,7 @@ import { dbGame } from '../schema/db-game'
 import { Model } from 'sequelize'
 
 export class DaoGame implements GameRepository{
-  createGameByPlayerId(game: Game): Promise<Model<Game>>{
+  async createGameByPlayerId(game: Game): Promise<Model<Game>>{
     const newGame = dbGame.create(game)
     return newGame
   }
