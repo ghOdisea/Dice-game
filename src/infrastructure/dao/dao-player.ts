@@ -21,6 +21,16 @@ export class DaoPlayer implements PlayerRepository{
     const updatePlayer = await dbPlayer.update({ name: changes},{where: { id: playerId } })
     return +updatePlayer
   }
+  async updateScore(playerId:number, score: number): Promise<void>{
+    if(score === 7 ){
+      const updatePlayerWinner = await dbPlayer.update({victories: +1, totalGames: +1 },{where: { id: playerId } })
+      console.log(updatePlayerWinner)
+    }else{
+      const updatePlayerLoser = await dbPlayer.update({totalGames: +1 },{where: { id: playerId } })
+      console.log(updatePlayerLoser)
+    }
+    return 
+  }
 }
 
 

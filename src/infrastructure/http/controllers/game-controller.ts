@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { gameServices } from '../../dependences'
+import { daoPlayer, gameServices } from '../../dependences'
 import { getRandomValue } from '../../schema/utils/randomInt'
 
 
@@ -26,7 +26,7 @@ export class GameController{
       
       try {
         const newGame = await gameServices.createGamebyPlayerId(gameNew)
-      
+        daoPlayer.updateScore(playerID,score)
         res.status(201).json(newGame)
         
       } catch (error) {
