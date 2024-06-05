@@ -1,9 +1,14 @@
 import express, { Router } from 'express'
+<<<<<<< HEAD
 import { PlayerRouter } from '../../infrastructure/http/routes/player-router'
 import { GameRouter } from '../../infrastructure/http/routes/game-router'
 import { RankingRouter } from '../../infrastructure/http/routes/ranking-router'
+=======
+import { PlayerRouter } from '../../infrastructure/routes/player-router'
+import { GameRouter } from '../../infrastructure/routes/game-router'
+>>>>>>> 8e1c048f398855ecbb0793592aaedd13a025e9d1
 
-class ServerBootStrap {
+export class ServerBootStrap {
   
   public app = express()
   public PORT : string | number = process.env.PORT ?? 3000
@@ -14,7 +19,6 @@ class ServerBootStrap {
     this.app.disable('x-powered-by')
     this.app.use('/api', this.routers())
     this.listen()
-  
   }
     
   routers (): Router[] {
@@ -31,6 +35,4 @@ class ServerBootStrap {
     })
   }
 }
-    
-const server = new ServerBootStrap()
-server.build()
+

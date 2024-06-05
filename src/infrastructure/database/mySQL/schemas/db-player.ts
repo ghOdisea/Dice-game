@@ -1,4 +1,4 @@
-import Player from '../../domain/models/player'
+import Player from '../../../../domain/models/player'
 import { sequelize } from '../sequelize'
 import { DataTypes, Model, NOW } from 'sequelize'
 /* import { dbGame } from './db-game' */

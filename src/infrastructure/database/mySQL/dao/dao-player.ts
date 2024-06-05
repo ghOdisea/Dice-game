@@ -1,6 +1,6 @@
 import { dbPlayer } from '../schemas/db-player'
-import { PlayerRepository } from '../../domain/repository/player.repository'
-import Player from '../../domain/models/player'
+import { PlayerRepository } from '../../../../domain/repository/player.repository'
+import Player from '../../../../domain/models/player'
 import { Model } from 'sequelize'
 
 export class DaoPlayer implements PlayerRepository{

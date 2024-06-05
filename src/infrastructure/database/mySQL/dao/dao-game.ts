@@ -1,5 +1,5 @@
-import { GameRepository } from '../../domain/repository/game.repository'
-import Game from '../../domain/models/game'
+import { GameRepository } from '../../../../domain/repository/game.repository'
+import Game from '../../../../domain/models/game'
 import { dbGame } from '../schemas/db-game'
 import { Model } from 'sequelize'
 
