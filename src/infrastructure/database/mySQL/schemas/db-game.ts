@@ -1,7 +1,7 @@
-import { sequelize } from '../sequelize'
+import { sequelize } from '../config.sequelize'
 import { DataTypes, Model } from 'sequelize'
 import Game from '../../../../domain/models/game'
-import { dbPlayer } from './db-player'
+// import { dbPlayer } from './db-player'
 
 export const dbGame = sequelize.define<Model<Game>>('game',{
   id: {
@@ -33,6 +33,6 @@ export const dbGame = sequelize.define<Model<Game>>('game',{
 
 )
 
-dbPlayer.hasMany(dbGame,{
-  foreignKey: 'id'
-})
+// dbPlayer.hasMany(dbGame,{
+//   foreignKey: 'id'
+// })

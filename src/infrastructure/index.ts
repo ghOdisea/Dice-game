@@ -1,7 +1,6 @@
-import { ServerBootStrap } from '../application/server/server'
-import { dbConnection } from './database/mySQL/connection-db'
+import { dbConnection } from './database/mySQL/connection.sequelize'
+import { server } from './dependences'
 
-const server = new ServerBootStrap()
 
 server.build()
 
