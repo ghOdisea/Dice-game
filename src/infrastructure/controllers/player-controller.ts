@@ -1,5 +1,5 @@
 import { Request,Response } from 'express'
-import { playerServices } from '../../dependences'
+import { playerServices } from '../dependences'
 
 export class PlayerController{
 

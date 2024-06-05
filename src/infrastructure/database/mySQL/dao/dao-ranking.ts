@@ -1,6 +1,6 @@
-import { RankingRepository } from '../../domain/repository/repository.ranking'
+import { RankingRepository } from '../../../../domain/repository/repository.ranking'
 import { sequelize } from '../sequelize'
-import Player from '../../domain/models/player'
+
 
 
 

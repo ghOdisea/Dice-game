@@ -7,7 +7,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./db:/var/lib/mysql
+      - ./mysql-data:/var/lib/mysql
 
   app:
     container_name: rolling

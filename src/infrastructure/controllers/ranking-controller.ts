@@ -1,4 +1,4 @@
-import { rankingService } from '../../dependences'
+import { rankingService } from '../dependences'
 import { Response,Request } from 'express'
 
 export class RankingController{
