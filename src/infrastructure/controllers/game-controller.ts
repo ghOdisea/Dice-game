@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { daoPlayer, gameServices } from '../../dependences'
+import { daoPlayer, gameServices } from '../dependences'
 import { getRandomValue } from '../utils/randomInt'
 
 
