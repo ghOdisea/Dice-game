@@ -1,6 +1,6 @@
 import { sequelize } from '../sequelize'
 import { DataTypes, Model } from 'sequelize'
-import Game from '../../domain/models/game'
+import Game from '../../../../domain/models/game'
 
 export const dbGame = sequelize.define<Model<Game>>('game',{
   id: {
