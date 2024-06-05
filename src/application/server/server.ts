@@ -1,4 +1,5 @@
 import express, { Router } from 'express'
+import { RankingRouter } from '../../infrastructure/routes/ranking-router'
 import { PlayerRouter } from '../../infrastructure/routes/player-router'
 import { GameRouter } from '../../infrastructure/routes/game-router'
 
@@ -18,7 +19,8 @@ export class ServerBootStrap {
   routers (): Router[] {
     return [
       new PlayerRouter().router,
-      new GameRouter().router      
+      new GameRouter().router,
+      new RankingRouter().router
     ]
   }
     
