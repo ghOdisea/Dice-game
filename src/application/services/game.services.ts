@@ -18,8 +18,8 @@ export class GameService{
   }
 
   async deleteGamesbyId(playerID: number): Promise<number>{
-    const playerReset = this.gameRepository.deleteGamesById(playerID)
-    return playerReset
+    const deletedGames = this.gameRepository.deleteGamesById(playerID)
+    return deletedGames
     // Intencion de que devuelva el jugador con el numero de partidas en cero.
   }
 

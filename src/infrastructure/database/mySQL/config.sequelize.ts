@@ -21,7 +21,7 @@ if (!MYSQL_DOCKER_HOST || !MYSQL_USER || !MYSQL_DATABASE || !MYSQL_ROOT_PASSWORD
 }
 
 
-export const sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_ROOT_PASSWORD, {
+export const sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, '123456', {  //MYSQL_ROOT_PASSWORD
   host: 'localhost', // MYSQL_DOCKER_HOST
   dialect: 'mysql',
   port: MYSQL_DOCKER_PORT,

@@ -4,7 +4,8 @@ import { getRandomValue } from '../utils/randomInt'
 
 
 export class GameController{
-
+  
+  // Crear nuevo juego por ID de jugador      POST /api/games/:id
   async createGamebyPlayerId(req: Request, res: Response): Promise<void>{
     const playerID = Number(req.params.id)
     const dice1 = getRandomValue()
@@ -21,12 +22,11 @@ export class GameController{
     
     if(!playerID){
       res.status(400).send('Player Id is required')
-      
     } else{
       
       try {
         const newGame = await gameServices.createGamebyPlayerId(gameNew)
-        daoPlayer.updateScore(playerID,score)
+        await daoPlayer.updateScore(playerID,score)
         res.status(201).json(newGame)
         
       } catch (error) {
@@ -35,10 +35,10 @@ export class GameController{
     }
     
   }
+  // Listar juegos por ID de jugador      GET /api/games/:id
   async getGamesByPlayerId(req: Request, res: Response): Promise<void>{
     const playerID = Number(req.params.id)
     const playerGames = await gameServices.getGamesByPlayerId(playerID)
-    // console.log(newGame)
 
     if(playerGames == null){
       res.status(404).send('Player does not exist')
@@ -49,14 +49,17 @@ export class GameController{
   }
 
   async deleteGamesbyId(req:Request, res: Response){
-    const playerID = req.body.id
-    const playerReset = await gameServices.deleteGamesbyId(playerID)
-    // console.log(playerReset)
+    const playerID = Number(req.params.id)
+    const deletedGames = await gameServices.deleteGamesbyId(playerID)
 
-    if(playerReset === null ){
+    if(deletedGames === null || deletedGames === undefined){
       res.status(404).send('Player does not exist')
     }else{
-      res.status(205).json(playerReset)
+      if(deletedGames === 1){
+        res.status(200).send('There is ' + deletedGames +' game eliminated ')
+      }else{
+        res.status(200).send('There were ' + deletedGames +' games eliminated ')
+      }
     }
   } 
 }

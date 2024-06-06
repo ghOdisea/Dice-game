@@ -15,7 +15,7 @@ export class GameRouter extends BaseRouter<GameController>{
     this.router.get('/games/:id', (_, res) => {
       void this.controller.getGamesByPlayerId(_,res)
     })
-    this.router.delete('/games',(req,res)=>{
+    this.router.delete('/games/:id',(req,res)=>{
       void this.controller.deleteGamesbyId(req,res)
     })
   }

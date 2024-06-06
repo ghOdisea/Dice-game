@@ -14,11 +14,11 @@ export const dbPlayer = sequelize.define<Model<Player>>('player',{
     defaultValue: 'Anonymous'
   },
   victories:{
-    type: DataTypes.CHAR, 
+    type: DataTypes.CHAR, // No es correcto. 
     defaultValue: 0
   },
   totalGames:{
-    type: DataTypes.INTEGER,
+    type: DataTypes.CHAR, //No es correcto. 
     defaultValue: 0
   },
   registrationDate:{

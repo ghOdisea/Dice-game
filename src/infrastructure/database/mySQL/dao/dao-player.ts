@@ -2,6 +2,7 @@ import { dbPlayer } from '../schemas/db-player'
 import { PlayerRepository } from '../../../../domain/repository/player.repository'
 import Player from '../../../../domain/models/player'
 import { Model } from 'sequelize'
+import { sequelize } from '../config.sequelize'
 
 export class DaoPlayer implements PlayerRepository{
 
@@ -9,7 +10,7 @@ export class DaoPlayer implements PlayerRepository{
     const players = await dbPlayer.findAll()
     return players
   }
-  async getPlayerById(playerId:number): Promise<Model<Player> | null>{
+  async getPlayerById(playerId:number): Promise<Model<Player>| null>{
     const player = await dbPlayer.findOne({ where: { id: playerId } })
     return player
   }
@@ -22,17 +23,24 @@ export class DaoPlayer implements PlayerRepository{
     return +updatePlayer
   }
   async updateScore(playerId:number, score: number): Promise<void>{
-    if(score === 7 ){
-      const updatePlayerWinner = await dbPlayer.update({
-        victories: +1, 
-        totalGames: +1 
+
+    const totalGamesPlayer = await sequelize.query(`SELECT COUNT(id) FROM game WHERE id_player = ${playerId}`)
+    const totalGamesWin  = await sequelize.query(`SELECT COUNT(id) FROM game WHERE id_player = ${playerId} && score = 7`)
+
+    console.log(totalGamesPlayer)
+    console.log(totalGamesWin)
+    if( score != 7 ){
+      await dbPlayer.update({
+        totalGames: Number(totalGamesPlayer[0]) 
       },{where: { id: playerId } })
-      console.log(updatePlayerWinner)
-    }else{
-      const updatePlayerLoser = await dbPlayer.update({totalGames: +1 },{where: { id: playerId } })
-      console.log(updatePlayerLoser)
+      
+    }else if(score === 7){
+      await dbPlayer.update({
+        victories: Number(totalGamesWin[0]), 
+        totalGames: Number(totalGamesPlayer[0]) 
+      },{where: { id: playerId } })
+      
     }
-    return 
   }
 }
 

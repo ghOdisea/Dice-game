@@ -13,7 +13,7 @@ export class DaoGame implements GameRepository{
     return games
   }
   async deleteGamesById(playerId:number): Promise<number>{
-    const games = dbGame.destroy({ where: { id_player: playerId } })
-    return games
+    const deletedGames = dbGame.destroy({ where: { id_player: playerId } })
+    return deletedGames
   }
 }
