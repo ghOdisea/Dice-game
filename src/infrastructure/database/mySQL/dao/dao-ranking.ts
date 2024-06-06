@@ -1,5 +1,5 @@
 import { RankingRepository } from '../../../../domain/repository/repository.ranking'
-import { sequelize } from '../sequelize'
+import { sequelize } from '../config.sequelize'
 
 
 

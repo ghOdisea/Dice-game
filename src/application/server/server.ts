@@ -2,11 +2,14 @@ import express, { Router } from 'express'
 import { RankingRouter } from '../../infrastructure/routes/ranking-router'
 import { PlayerRouter } from '../../infrastructure/routes/player-router'
 import { GameRouter } from '../../infrastructure/routes/game-router'
+import dotenv from 'dotenv'
+dotenv.config()
+
 
 export class ServerBootStrap {
   
   public app = express()
-  public PORT : string | number = process.env.PORT ?? 3000
+  public PORT = process.env.NODE_DOCKER_PORT
 
   build (): void {
     this.app.use(express.json())

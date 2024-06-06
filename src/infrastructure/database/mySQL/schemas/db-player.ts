@@ -1,7 +1,7 @@
 import Player from '../../../../domain/models/player'
-import { sequelize } from '../sequelize'
+import { sequelize } from '../config.sequelize'
 import { DataTypes, Model, NOW } from 'sequelize'
-/* import { dbGame } from './db-game' */
+import { dbGame } from './db-game'
 
 export const dbPlayer = sequelize.define<Model<Player>>('player',{
   id: {
@@ -28,6 +28,6 @@ export const dbPlayer = sequelize.define<Model<Player>>('player',{
 },{tableName:'player'}) 
 
 
-/* dbGame.belongsTo(dbPlayer, {
+dbGame.belongsTo(dbPlayer, {
   foreignKey: 'id'
-}) */
+})

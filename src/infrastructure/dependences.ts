@@ -6,6 +6,7 @@ import { GameService } from '../application/services/game.services'
 
 import { RankingService } from '../application/services/ranking.services'
 import { DaoRanking } from './database/mySQL/dao/dao-ranking'
+import { ServerBootStrap } from '../application/server/server'
 
 export const daoPlayer = new DaoPlayer()
 export const playerServices = new PlayerService(daoPlayer)
@@ -15,3 +16,5 @@ export const gameServices = new GameService(daoGame)
 
 export const daoRanking = new DaoRanking()
 export const rankingService = new RankingService(daoRanking)
+
+export const server = new ServerBootStrap()

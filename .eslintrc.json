@@ -22,7 +22,7 @@
         "semi": ["error", "never"],
         "no-unused-vars": ["warn"],
         // "eqeqeq": ["error", "always"],
-        "no-console": ["warn"],
+        // "no-console": ["warn"],
         "curly": ["error", "all"]    
     }
 }
