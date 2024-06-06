@@ -11,11 +11,11 @@ export class RankingService{
     return rank
   }
   async rankingAsc():Promise<unknown | null>{
-    const rank = this.rankingRepository.getRankingWinners
+    const rank = this.rankingRepository.getRankingWinners()
     return rank
   }
   async rankingDesc():Promise<unknown | null>{
-    const rank = this.rankingRepository.getRankingLosers
+    const rank = this.rankingRepository.getRankingLosers()
     return rank
   }
 }
