@@ -11,11 +11,11 @@ export class DaoRanking implements RankingRepository{
     return ranking
   }
   async getRankingWinners(): Promise<unknown[] | null>{
-    const losers = await sequelize.query('select is as Player_ID,name as Player_name,(victories * 100 / (totalGames)) as Succes_Rate from player order by victories desc')
+    const losers = await sequelize.query('select id as Player_ID,name as Player_name,(victories * 100 / (totalGames)) as Succes_Rate from player order by victories desc')
     return losers
   }
   async getRankingLosers(): Promise<unknown[] | null>{
-    const losers = await sequelize.query('select is as Player_ID,name as Player_name,(victories * 100 / (totalGames)) as Succes_Rate from player order by victories asc')
+    const losers = await sequelize.query('select id as Player_ID,name as Player_name,(victories * 100 / (totalGames)) as Succes_Rate from player order by victories asc')
     return losers
   }
 }

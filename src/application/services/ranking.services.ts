@@ -10,4 +10,12 @@ export class RankingService{
     const rank = this.rankingRepository.getRanking()
     return rank
   }
+  async rankingAsc():Promise<unknown | null>{
+    const rank = this.rankingRepository.getRankingWinners
+    return rank
+  }
+  async rankingDesc():Promise<unknown | null>{
+    const rank = this.rankingRepository.getRankingLosers
+    return rank
+  }
 }

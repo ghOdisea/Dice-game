@@ -10,5 +10,11 @@ export class RankingRouter extends BaseRouter<RankingController>{
     this.router.get('/ranking',(_,res)=>{
       void this.controller.getRanking(_,res)
     })
+    this.router.get('/ranking/winners',(_,res)=>{
+      void this.controller.getRanking(_,res)
+    })
+    this.router.get('/ranking/losers',(_,res)=>{
+      void this.controller.getRanking(_,res)
+    })
   }
 }
