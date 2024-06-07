@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { daoPlayer, gameServices } from '../dependences'
+import { daoGame, daoPlayer, gameServices } from '../dependences'
 import { getRandomValue } from '../utils/randomInt'
 
 
@@ -55,11 +55,8 @@ export class GameController{
     if(deletedGames === null || deletedGames === undefined){
       res.status(404).send('Player does not exist')
     }else{
-      if(deletedGames === 1){
-        res.status(200).send('There is ' + deletedGames +' game eliminated ')
-      }else{
-        res.status(200).send('There were ' + deletedGames +' games eliminated ')
-      }
+      const update = await daoGame.updateGames(playerID)
+      res.status(200).send('There is ' + deletedGames +' game eliminated total games = '+update )
     }
   } 
 }

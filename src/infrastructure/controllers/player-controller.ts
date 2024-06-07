@@ -57,7 +57,7 @@ export class PlayerController{
     }else{
       try{
         const playerUpdate = await playerServices.updatePlayerbyId(+playerId,req.body.name)
-        res.status(202).send(playerId+' has changed to '+playerUpdate)
+        res.status(202).send(playerUpdate + 'row affected, player with ID number '+ playerId +' has changed to '+req.body.name)
       }catch(error:any){
         res
           .status(error?.status || 500)

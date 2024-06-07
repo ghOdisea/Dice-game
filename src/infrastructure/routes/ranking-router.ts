@@ -8,13 +8,13 @@ export class RankingRouter extends BaseRouter<RankingController>{
 
   routes():void{
     this.router.get('/ranking',(_,res)=>{
-      void this.controller.getRanking(_,res) // anyadir limit 5 al ranking
+      void this.controller.getRanking(_,res) 
     })
     this.router.get('/ranking/winners',(_,res)=>{
-      void this.controller.getWinners(_,res) //Anyadir limit 3 al ranking
+      void this.controller.getWinners(_,res) 
     })
     this.router.get('/ranking/losers',(_,res)=>{
-      void this.controller.getLosers(_,res) //Anyadir limit 3 al ranking
+      void this.controller.getLosers(_,res)
     })
   }
 }
