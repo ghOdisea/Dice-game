@@ -4,7 +4,10 @@ services:
     env_file:
       - ./.env
     environment:
-      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_HOST=$MYSQL_DOCKER_HOST
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD=$MYSQL_PASSWORD
       - MYSQL_DATABASE=$MYSQL_DATABASE
     ports:
       - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
@@ -20,15 +23,16 @@ services:
       - mysql_db
     links:
       - mysql_db
+
     image: rolling_dices
     env_file:
       - ./.env
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
-      - MYSQL_HOST=$MYSQL_HOST
+      - MYSQL_HOST=$MYSQL_DOCKER_HOST
       - MYSQL_USER= $MYSQL_USER
-      - MYSQL_DB=$MYSQL_DATABASE
-      - MYSQL_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQL_DATABASE
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
 volumes:
   mysql-data:
