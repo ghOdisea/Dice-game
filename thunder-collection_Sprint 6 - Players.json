@@ -1,0 +1,163 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Sprint 6 - Players",
+    "collectionId": "b4923b47-5761-4525-9c40-fdb5f3203706",
+    "dateExported": "2024-06-07T09:14:33.670Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "d9cdfeb3-190a-4380-bd92-48e59b60ec6b",
+            "name": "Games",
+            "containerId": "",
+            "created": "2024-06-03T11:29:07.025Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "9dc130c0-6034-406c-b38c-81ee142e2e30",
+            "name": "Players",
+            "containerId": "",
+            "created": "2024-06-03T11:29:14.220Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "c26dd3a8-5a28-4704-b7c7-641544325942",
+            "name": "Rankings",
+            "containerId": "",
+            "created": "2024-06-07T08:54:19.510Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "55fbfc3b-1da0-42ca-955b-0b7313238f0e",
+            "colId": "b4923b47-5761-4525-9c40-fdb5f3203706",
+            "containerId": "9dc130c0-6034-406c-b38c-81ee142e2e30",
+            "name": "GET / allPlayers",
+            "url": "http://localhost:3000/api/players",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-05-29T13:32:32.676Z",
+            "modified": "2024-06-03T11:30:40.030Z",
+            "headers": []
+        },
+        {
+            "_id": "d3892d43-fae1-4be2-a8cc-0fbd62f0ecff",
+            "colId": "b4923b47-5761-4525-9c40-fdb5f3203706",
+            "containerId": "9dc130c0-6034-406c-b38c-81ee142e2e30",
+            "name": "POST / Player with name",
+            "url": "http://localhost:3000/api/players",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-05-29T13:33:22.084Z",
+            "modified": "2024-06-04T10:34:58.503Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Jordi\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "a032def5-d1de-433d-bd22-aad2e7acd1c3",
+            "colId": "b4923b47-5761-4525-9c40-fdb5f3203706",
+            "containerId": "9dc130c0-6034-406c-b38c-81ee142e2e30",
+            "name": "POST / Player with anonymous",
+            "url": "http://localhost:3000/api/players",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-05-29T13:33:40.204Z",
+            "modified": "2024-06-04T08:42:15.752Z",
+            "headers": []
+        },
+        {
+            "_id": "f8408e9d-c919-486d-8dc1-f1f5e91d9fd0",
+            "colId": "b4923b47-5761-4525-9c40-fdb5f3203706",
+            "containerId": "d9cdfeb3-190a-4380-bd92-48e59b60ec6b",
+            "name": "POST / Games by ID",
+            "url": "http://localhost:3000/api/games/2",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-06-03T11:30:03.125Z",
+            "modified": "2024-06-05T16:14:04.618Z",
+            "headers": []
+        },
+        {
+            "_id": "33adc9d0-959c-42bc-aeb1-8d9218c6f3c8",
+            "colId": "b4923b47-5761-4525-9c40-fdb5f3203706",
+            "containerId": "d9cdfeb3-190a-4380-bd92-48e59b60ec6b",
+            "name": "GET / Games by ID",
+            "url": "http://localhost:3000/api/games/2",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-06-05T15:49:28.926Z",
+            "modified": "2024-06-06T09:05:52.340Z",
+            "headers": []
+        },
+        {
+            "_id": "fc5fc212-123a-42c8-9a79-bd054d68a157",
+            "colId": "b4923b47-5761-4525-9c40-fdb5f3203706",
+            "containerId": "d9cdfeb3-190a-4380-bd92-48e59b60ec6b",
+            "name": "DELETE / Games by ID",
+            "url": "http://localhost:3000/api/games/2",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2024-06-05T15:50:13.182Z",
+            "modified": "2024-06-05T15:50:26.073Z",
+            "headers": []
+        },
+        {
+            "_id": "5f8bfccc-4d84-491d-b0e9-ff6743cb87ec",
+            "colId": "b4923b47-5761-4525-9c40-fdb5f3203706",
+            "containerId": "9dc130c0-6034-406c-b38c-81ee142e2e30",
+            "name": "UPDATE / Name by ID",
+            "url": "http://localhost:3000/api/players/8",
+            "method": "PATCH",
+            "sortNum": 80000,
+            "created": "2024-06-05T16:15:41.939Z",
+            "modified": "2024-06-07T08:53:39.143Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Pepito\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "746c8aec-a6d6-4e17-a54d-5437bc679569",
+            "colId": "b4923b47-5761-4525-9c40-fdb5f3203706",
+            "containerId": "c26dd3a8-5a28-4704-b7c7-641544325942",
+            "name": "GET / Success rate ranking",
+            "url": "http://localhost:3000/api/ranking",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-06-07T08:55:06.081Z",
+            "modified": "2024-06-07T08:55:28.795Z",
+            "headers": []
+        },
+        {
+            "_id": "bd45aef3-9d83-402a-b5d3-a8118b9a8dd7",
+            "colId": "b4923b47-5761-4525-9c40-fdb5f3203706",
+            "containerId": "c26dd3a8-5a28-4704-b7c7-641544325942",
+            "name": "GET / Winner ranking",
+            "url": "http://localhost:3000/api/ranking/winners",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-06-07T08:56:57.512Z",
+            "modified": "2024-06-07T08:59:06.576Z",
+            "headers": []
+        },
+        {
+            "_id": "6651d44d-b194-4d04-b739-81f394001950",
+            "colId": "b4923b47-5761-4525-9c40-fdb5f3203706",
+            "containerId": "c26dd3a8-5a28-4704-b7c7-641544325942",
+            "name": "GET / Loser ranking",
+            "url": "http://localhost:3000/api/ranking/losers",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-06-07T08:58:11.455Z",
+            "modified": "2024-06-07T08:59:39.825Z",
+            "headers": []
+        }
+    ],
+    "ref": "DNe5-xkEfBbu5bfbegtOJtwBLbXo3VUA2EsItLs0kdEUZ4ESVEmVKkOcUlIh1YAaydBYPvz19oL6hRrljyGgpg"
+}

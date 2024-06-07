@@ -2,3 +2,4 @@ node_modules
 .gitignore
 dist
 mysql-data
+.env
