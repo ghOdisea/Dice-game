@@ -1,4 +1,6 @@
+version: '3.8'
 services:
+
   mysql_db:
     image: mysql:8
     env_file:
@@ -13,6 +15,10 @@ services:
       - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
     volumes:
       - ./mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "ping" ]
+      timeout: 10s
+      retries: 5
 
   app:
     container_name: rolling
@@ -20,7 +26,8 @@ services:
       context: .
       dockerfile: Dockerfile
     depends_on:
-      - mysql_db
+      mysql_db:
+        condition: service_healthy
     links:
       - mysql_db
 
@@ -34,5 +41,7 @@ services:
       - MYSQL_USER= $MYSQL_USER
       - MYSQL_DATABASE=$MYSQL_DATABASE
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
+
+
 volumes:
   mysql-data:
