@@ -22,7 +22,7 @@ export const dbPlayer = sequelize.define<Model<Player>>('player',{
     defaultValue: 0
   },
   registrationDate:{
-    type: DataTypes.DATE, 
+    type: DataTypes.DATEONLY, 
     defaultValue: NOW
   }
 },{tableName:'player'}) 

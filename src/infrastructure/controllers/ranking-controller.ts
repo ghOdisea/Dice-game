@@ -7,7 +7,7 @@ export class RankingController{
     if(!rank){
       res.status(404).send('players not found')
     }
-    res.status(202).send(rank)
+    res.status(202).json(rank)
     return rank
   }
   async getWinners(_:Request,res:Response):Promise<unknown | null>{
@@ -15,7 +15,7 @@ export class RankingController{
     if(!rank){
       res.status(404).send('players not found')
     }
-    res.status(202).send(rank)
+    res.status(202).json(rank)
     return rank
   }
   async getLosers(_:Request,res:Response):Promise<unknown | null>{
@@ -23,7 +23,7 @@ export class RankingController{
     if(!rank){
       res.status(404).send('players not found')
     }
-    res.status(202).send(rank)
+    res.status(202).json(rank)
     return rank
   }
 }
