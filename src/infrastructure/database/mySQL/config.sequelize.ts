@@ -20,7 +20,7 @@ console.log({
   db: MYSQL_DATABASE,
   db_local_port: MYSQL_LOCAL_PORT,
   // host_Docker: MYSQL_DOCKER_HOST,// 'localhost'
-  // password: MYSQL_PASSWORD,
+  password: MYSQL_PASSWORD
   // db_docker_port: MYSQL_DOCKER_PORT,
 })
 

@@ -6,7 +6,7 @@ services:
     env_file:
       - ./.env
     environment:
-      - MYSQL_HOST=$MYSQL_LOCAL_HOST
+      # - MYSQL_HOST=$MYSQL_LOCAL_HOST
       # - MYSQL_USER=$MYSQL_USER
       # - MYSQL_PASSWORD=$MYSQL_PASSWORD
       - MYSQL_ROOT_PASSWORD=$MYSQL_PASSWORD
@@ -16,9 +16,9 @@ services:
     volumes:
       - ./mysql-data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "ping" ]
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       timeout: 10s
-      retries: 5
+      retries: 3
 
   app:
     container_name: rolling
@@ -37,11 +37,10 @@ services:
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
-      - MYSQL_HOST=$MYSQL_LOCAL_HOST
+      - MYSQL_HOST=$MYSQL_DOCKER_HOST
       - MYSQL_USER= $MYSQL_USER
       - MYSQL_DATABASE=$MYSQL_DATABASE
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
-
 
 volumes:
   mysql-data:
