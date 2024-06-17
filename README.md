@@ -1,21 +1,20 @@
-# Proyecto de API REST con TypeScript, Node.js y Arquitectura Hexagonal
+# Juego de dados con TypeScript, Node.js y Arquitectura Hexagonal
+
+## Tabla de Contenidos
+
+- [Descripción](#descripción)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Documentación de Rutas](#documentación-de-rutas)
 
 ## Descripción
 
-Esta es una API RESTful desarrollada con TypeScript y Node.js, siguiendo una arquitectura hexagonal. El proyecto utiliza Docker Compose para la configuración y administración de contenedores.
+Esta es una API RESTful desarrollada con TypeScript y Node.js, siguiendo una arquitectura hexagonal.
+El proyecto utiliza Docker Compose para la configuración y administración de contenedores.
+Hay un contenedor "Rolling", que crea una imagen llamada App con toda la logica del Backend, y al mismo tiempo se crea una base de datos de MySQL.
 
-## Tabla de Contenidos
-<!--                                     A COMPLETAR 
-- [Descripción](descripción)
-- [Instalación](#instalación)
-- [Uso](#uso)
-- [Estructura del Proyecto](estructura-del-proyecto)
-- [Documentación de Rutas](documentación-de-rutas)
-  - [GET](get)
-  - [POST](post)
-  - [PATCH](patch)
-  - [DELETE](delete)
-- [Contribución](contribución) -->
+Front - End en desarrollo ⏳
 
 ## Instalación
 
@@ -34,13 +33,7 @@ Esta es una API RESTful desarrollada con TypeScript y Node.js, siguiendo una arq
     cd 6.1-gonzalo-jordinky
     ```
 
-2. Instala las dependencias:
-
-    ```sh
-    npm install
-    ```
-
-3. Crea un archivo `.env` en la raíz del proyecto y configura las variables de entorno necesarias.
+2.⚠️ Crea un archivo `.env` en la raíz del proyecto y configura las variables de entorno necesarias.
 
 ```sh
 MYSQL_DOCKER_HOST=mysql_db
@@ -63,30 +56,65 @@ NODE_DOCKER_PORT=3000
     docker-compose up --build
     ```
 
-2. La API estará disponible en `http://localhost:3000`.
+2. La API estará disponible en `http://localhost:3000/api`.
 
 ## Uso
+
+Una vez levantado el proyecto en Docker, se pueden probar las rutas con la colección de ThunderClient incluída en el repositorio
 
 ### Ejecutar el Proyecto en Desarrollo
 
 ```sh
 npm run dev
 ```
-<!-- 
-### Ejecutar Tests
 
-```sh
-npm test
-``` -->
 ### Estructura del Proyecto
 
-.
+rolling_dices
 ├── src
 │   ├── application
+│   │   ├── server
+│   │   └── services
 │   ├── domain
-│   ├── infrastructure
-│   └── interfaces
+│   │   ├── models
+│   │   └── repositories
+│   └── infrastructure
+│       ├── controllers
+│       ├── database
+│       ├── routes
+│       ├── utils
+│       ├── index.ts
+│       └── dependences.ts
 ├── Dockerfile
 ├── docker-compose.yml
+├── .env
 ├── package.json
 └── README.md
+
+### Documentación de Rutas
+
+/players:
+
+GET / players : Lista todos los jugadores con sus victorias y total de partidas.
+
+POST / players : Crea un jugador.
+*Se puede crear un jugador sin pasarle ninguna información, y creará un jugador llamado "Anonymous".
+También, se puede enviar el nombre del jugador, en el cuerpo de la petición.
+
+PATCH / players / :id : Modifica el nombre del jugador, por id del jugador pasado por parámetro de la petición.
+
+/games:
+
+GET / games / :id : Lista las jugadas de un jugador, por id pasado por parámetro de la petición.
+
+POST / games / :id : Crea una partida de dados, donde se generan los valores de los dados (1-6) de manera aleatoria y guarda la partida en la tabla de jugadas.
+
+DELETE / games / :id : Elimina todas las partidas de un jugador. Reinicia contadores a cero.
+
+/ranking:
+
+GET / ranking : Lista el ranking de jugadores con sus porcentajes de éxito.
+
+GET / ranking / winner : Lista el Top 3 de jugadores con mayor porcentajes de éxito.
+
+GET / ranking / loser : Devuelve los últimos 3 jugadores con menor porcentaje de éxito en el ranking general.
