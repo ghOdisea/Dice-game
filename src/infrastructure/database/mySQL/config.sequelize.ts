@@ -17,16 +17,18 @@ if (!MYSQL_DOCKER_HOST || !MYSQL_USER || !MYSQL_DATABASE || !MYSQL_PASSWORD) {
   
 console.log({
   user: MYSQL_USER,
+  host_Docker: MYSQL_DOCKER_HOST,// 'localhost'
   db: MYSQL_DATABASE,
-  db_local_port: MYSQL_LOCAL_PORT,
-  // host_Docker: MYSQL_DOCKER_HOST,// 'localhost'
+  db_port: MYSQL_LOCAL_PORT,
   password: MYSQL_PASSWORD
-  // db_docker_port: MYSQL_DOCKER_PORT,
 })
 
-export const sequelize = new Sequelize('mysql://localhost:3307/rolling_dices', {
-  username: MYSQL_USER,
-  password: MYSQL_PASSWORD,
+export const sequelize = new Sequelize(
+  MYSQL_DATABASE,
+  MYSQL_USER,
+  MYSQL_PASSWORD, {
+  host: MYSQL_DOCKER_HOST,
+  dialect: 'mysql',
   define:{
     timestamps: false
   }
