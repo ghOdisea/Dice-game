@@ -70,6 +70,7 @@ npm run dev
 
 ### Estructura del Proyecto
 
+```sh
 rolling_dices
 ├── src
 │   ├── application
@@ -90,20 +91,27 @@ rolling_dices
 ├── .env
 ├── package.json
 └── README.md
+```
 
 ### Documentación de Rutas
 
-/players:
+#### /players
 
-GET / players : Lista todos los jugadores con sus victorias y total de partidas.
+GET / players :
 
-POST / players : Crea un jugador.
+Lista todos los jugadores con sus victorias y total de partidas.
+
+POST / players :
+
+Crea un jugador.
 *Se puede crear un jugador sin pasarle ninguna información, y creará un jugador llamado "Anonymous".
 También, se puede enviar el nombre del jugador, en el cuerpo de la petición.
 
-PATCH / players / :id : Modifica el nombre del jugador, por id del jugador pasado por parámetro de la petición.
+PATCH / players / :id :
 
-/games:
+Modifica el nombre del jugador, por id del jugador pasado por parámetro de la petición.
+
+#### /games
 
 GET / games / :id : Lista las jugadas de un jugador, por id pasado por parámetro de la petición.
 
@@ -111,7 +119,7 @@ POST / games / :id : Crea una partida de dados, donde se generan los valores de 
 
 DELETE / games / :id : Elimina todas las partidas de un jugador. Reinicia contadores a cero.
 
-/ranking:
+#### /ranking
 
 GET / ranking : Lista el ranking de jugadores con sus porcentajes de éxito.
 
